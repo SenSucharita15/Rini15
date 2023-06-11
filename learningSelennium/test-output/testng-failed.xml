@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.sucharita.learningSelennium.Assignment1Logout">
+      <class name="com.sucharita.learningSelennium.Assignment1ChangePassword">
         <methods>
-          <include name="tearDown"/>
-          <include name="logoutFromAccount"/>
           <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="validatePasswordChangeWithMissingField"/>
         </methods>
-      </class> <!-- com.sucharita.learningSelennium.Assignment1Logout -->
+      </class> <!-- com.sucharita.learningSelennium.Assignment1ChangePassword -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

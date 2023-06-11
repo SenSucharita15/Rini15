@@ -107,14 +107,6 @@ public class Assignment1Register {
 		String message = "Password confirmation does not match password!";
 		assert errorMessage.isDisplayed() && errorMessage.getText().equals(message) : "Error message not displayed";
 		System.out.println(message);
-
-		// Assert.assertEquals(sc.getFirstSelectedOption().getText(), "United Kingdom",
-		// "United kingdom not available");
-
-		// wait for the registration to complete
-		// Add wait
-		// Perform Assertion to verify the registration process
-
 	}
 
 	@SuppressWarnings("deprecation")

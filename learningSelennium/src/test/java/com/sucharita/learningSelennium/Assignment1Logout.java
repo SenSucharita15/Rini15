@@ -49,19 +49,18 @@ public class Assignment1Logout {
 		password.sendKeys("rini1234");
 		logIn.click();
 		wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		WebElement accountDropdown = wd.findElement(By.cssSelector("#top-links li.dropdown"));
-		Actions actions = new Actions(wd);
+//		WebElement accountDropdown = wd.findElement(By.cssSelector("#top-links li.dropdown"));
+//		Actions actions = new Actions(wd);
 
-		actions.moveToElement(accountDropdown).perform();
+		// actions.moveToElement(accountDropdown).perform();
 
 		WebElement logout = wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.cssSelector("#top-links > ul > li.dropdown.open > ul > li:nth-child(5) > a")));
-		// .findElement(By.cssSelector("#top-links > ul > li.dropdown.open > ul >
-		// li:nth-child(5) > a"));
+				By.cssSelector("#column-right > div > a:nth-child(13)")));
 		logout.click();
 		Assert.assertEquals(wd.getTitle(), "Account Logout", "you are not on right page");
 		System.out.println(wd.getTitle());
 		System.out.println(wd.getCurrentUrl());
+
 	}
 
 	@AfterMethod
