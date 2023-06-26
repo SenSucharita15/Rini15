@@ -26,4 +26,5 @@ public class ShoppingCartPage extends TestBase {
 		checkoutBtn.click();
 		return new CheckOutPage();
 	}
+
 }
