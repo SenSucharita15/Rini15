@@ -3,13 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.demonopcommerce.AutomationFRamework.CheckOutPageTest">
+      <class name="com.naveenautomationlabs.AutomationFramework.MyWishListTest">
         <methods>
           <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="validateAddToWishListTable"/>
           <include name="quit"/>
-          <include name="validateShoppingWithRegisterLogin"/>
+          <include name="SetUpLogger"/>
         </methods>
-      </class> <!-- com.demonopcommerce.AutomationFRamework.CheckOutPageTest -->
+      </class> <!-- com.naveenautomationlabs.AutomationFramework.MyWishListTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
