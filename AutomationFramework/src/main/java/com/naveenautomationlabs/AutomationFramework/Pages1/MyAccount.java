@@ -15,15 +15,14 @@ public class MyAccount extends TestBase {
 	@FindBy(css = "#content>h2:first-of-type")
 	WebElement myAccountText;
 
-	@FindBy(css = "ul.list-inline>li:nth-of-type(3)")
+	@FindBy(css = "#wishlist-total > span")
 	WebElement wishListButton;
 
 	public String getMyAccountText() {
 		return myAccountText.getText();
 	}
 
-	public MyWishList clickOnWishListButton() {
+	public void clickOnWishListButton() {
 		wishListButton.click();
-		return new MyWishList();
 	}
 }

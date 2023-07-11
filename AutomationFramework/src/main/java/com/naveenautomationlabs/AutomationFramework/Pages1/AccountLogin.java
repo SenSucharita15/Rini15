@@ -26,15 +26,15 @@ public class AccountLogin extends TestBase{
 	@FindBy(css = "div.alert")
 	private WebElement passwordResetLinkText;
 
-	public void enterEmail() {
+	private void enterEmail() {
 		emailInputField.sendKeys("tony@gmail.com");
 	}
 
-	public void enterPassword() {
+	private void enterPassword() {
 		passwordInputField.sendKeys("Password2");
 	}
 
-	public MyAccount clickLoginBtn() {
+	private MyAccount clickLoginBtn() {
 		loginBtn.click();
 		return new MyAccount();
 	}

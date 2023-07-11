@@ -4,38 +4,17 @@
   <listeners>
     <listener class-name="com.naveenautomationlabs.AutomationFramework.Listeners.CustomListener"/>
     <listener class-name="com.naveenautomationlabs.AutomationFramework.Listeners.TransformerForRetry"/>
-    <listener class-name="com.naveenautomationlabs.AutomationFramework.Listeners.ExtentReportListener"/>
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
       <class name="com.naveenautomationlabs.AutomationFramework.YourStoreTest">
         <methods>
-          <include name="tearDown"/>
-          <include name="validateSearchProduct"/>
+          <include name="testFailure"/>
           <include name="quit"/>
-          <include name="validateLoginUsingValidCredentials"/>
           <include name="setUp"/>
           <include name="SetUpLogger"/>
         </methods>
       </class> <!-- com.naveenautomationlabs.AutomationFramework.YourStoreTest -->
-      <class name="com.naveenautomationlabs.AutomationFramework.AccountLoginTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="validateLoginUsingValidCredentials"/>
-          <include name="setUp"/>
-          <include name="quit"/>
-          <include name="SetUpLogger"/>
-        </methods>
-      </class> <!-- com.naveenautomationlabs.AutomationFramework.AccountLoginTest -->
-      <class name="com.naveenautomationlabs.AutomationFramework.CartTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="quit"/>
-          <include name="setUp"/>
-          <include name="SetUpLogger"/>
-          <include name="testAddToCart"/>
-        </methods>
-      </class> <!-- com.naveenautomationlabs.AutomationFramework.CartTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

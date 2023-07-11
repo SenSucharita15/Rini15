@@ -3,15 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.naveenautomationlabs.AutomationFramework.MyWishListTest">
+      <class name="com.naveenautomationlabs.AutomationFramework.YourStoreTest">
         <methods>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="validateAddToWishListTable"/>
+          <include name="testMovingDots"/>
           <include name="quit"/>
+          <include name="setUp"/>
           <include name="SetUpLogger"/>
         </methods>
-      </class> <!-- com.naveenautomationlabs.AutomationFramework.MyWishListTest -->
+      </class> <!-- com.naveenautomationlabs.AutomationFramework.YourStoreTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

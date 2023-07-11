@@ -33,7 +33,7 @@ public class AccountLoginTest extends TestBase {
 	public void validateLoginUsingValidCredentials() {
 		// Utils.takeScreenShot();
 		yourStore.clickMyAccountBtn();
-		accountLogin = yourStore.clickloginbtn();
+		accountLogin = yourStore.clickLoginBtn();
 		forgotYourPassword = accountLogin.clickForgotPassword();
 		forgotYourPassword.enterEmail();
 		forgotYourPassword.clickContinueBtn();

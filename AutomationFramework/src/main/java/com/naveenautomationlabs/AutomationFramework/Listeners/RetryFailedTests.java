@@ -6,7 +6,7 @@ import org.testng.ITestResult;
 import com.naveenautomationlabs.AutomationFramework.base.TestBase;
 
 public class RetryFailedTests extends TestBase implements IRetryAnalyzer {
-	int maxcounter = 1;
+	int maxcounter = 2;
 	int cnt = 0;
 
 	@Override

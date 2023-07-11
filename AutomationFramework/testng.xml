@@ -5,13 +5,11 @@
 <listeners>
 		<listener class-name="com.naveenautomationlabs.AutomationFramework.Listeners.CustomListener"/>
 		<listener class-name="com.naveenautomationlabs.AutomationFramework.Listeners.TransformerForRetry"/>
-		<listener class-name="com.naveenautomationlabs.AutomationFramework.Listeners.ExtentReportListener"/>
 	</listeners>
   <test thread-count="5" name="Test">
     <classes>
       <class name="com.naveenautomationlabs.AutomationFramework.AccountLoginTest"/>
       <class name="com.naveenautomationlabs.AutomationFramework.YourStoreTest"/>
-      <class name="com.naveenautomationlabs.AutomationFramework.CartTest"/>
      
     </classes>
   </test> <!-- Test -->

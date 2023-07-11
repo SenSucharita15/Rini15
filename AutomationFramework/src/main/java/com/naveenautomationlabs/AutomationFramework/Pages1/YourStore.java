@@ -1,7 +1,5 @@
 package com.naveenautomationlabs.AutomationFramework.Pages1;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -57,7 +55,7 @@ public class YourStore extends TestBase {
 	@FindBy(css = "button[onclick *='wishlist.add']")
 	private WebElement addToWishListButton;
 
-	@FindBy(css = "div.alert-success")
+	@FindBy(css = ".alert-success")
 	private WebElement successMessage;
 
 	@FindBy(css = ".product-layout .product-thumb p.price")
@@ -65,14 +63,6 @@ public class YourStore extends TestBase {
 
 	@FindBy(css = "#top-links > ul > li:nth-child(4) > a")
 	private WebElement shoppingCartButton;
-
-	@FindBy(css = "div.product-layout")
-	private List<WebElement> productElements;
-
-	@FindBy(css = "#wishlist-total")
-	private WebElement wishlistTotal;
-	
-
 
 	public void clickNextButton() {
 		nextButtonSwiper.click();
@@ -83,21 +73,24 @@ public class YourStore extends TestBase {
 		addToCartButton.click();
 		wait = new WebDriverWait(wd, 10);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".alert-success")));
-		// Assert.assertTrue(successMessage.isDisplayed(), "Add to cart message not
-		// displayed");
+		Assert.assertTrue(successMessage.isDisplayed(), "Add to cart message not displayed");
 		System.out.println(successMessage.getText());
 		shoppingCartButton.click();
 
 //		wait.until(
 //				ExpectedConditions.urlToBe("/cart"));
 		String currentPageUrl = wd.getCurrentUrl();
-		// Assert.assertTrue(currentPageUrl.contains("/cart"), "The product was not
-		// successfully added to the cart");
+		Assert.assertTrue(
+				currentPageUrl.contains("/cart"),
+				"The product was not successfully added to the cart");
 	}
 
-	public void searchForItem(String itemName) {
-		searchInput.sendKeys(itemName);
-		searchButton1.click();
+	public void addToWishListFunction() {
+		addToWishListButton.click();
+		wait = new WebDriverWait(wd, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".alert-success")));
+		Assert.assertTrue(successMessage.isDisplayed(), "Add to wishlist message not displayed");
+		System.out.println(successMessage.getText());
 	}
 
 	public void navigateToHomePage() {
@@ -107,30 +100,16 @@ public class YourStore extends TestBase {
 	public WebElement getMovingDots() {
 		return movingDots;
 	}
-
 	public void searchAnyProductDetails(String productName) {
 		searchInput.clear();
 		searchInput.sendKeys(productName);
 		searchButton1.click();
-//	Assert.assertTrue(searchResults.isDisplayed(), "search results not displayed");
-		// Assert.assertNotNull(productName1.getText(), "Product name is not
-		// available");
-//		Assert.assertNotNull(productPrice1.getText(), "Product price is not available");
+
+		Assert.assertTrue(searchResults.isDisplayed(), "search results not displayed");
+		Assert.assertNotNull(productName1.getText(), "Product name is not available");
+		Assert.assertNotNull(productPrice1.getText(), "Product price is not available");
 
 	}
-
-	public boolean issearchResultDisplayed() {
-		return searchResults.isDisplayed();
-	}
-
-	public String getProductName() {
-		return productName1.getText();
-	}
-
-	public String getProductPrice() {
-		return productPrice1.getText();
-	}
-
 
 	public void searchProductAndValidate() {
 		searchInput.clear();
@@ -145,22 +124,22 @@ public class YourStore extends TestBase {
 		// actions.moveToElement(countryOption).click().perform();
 		wait = new WebDriverWait(wd, 10);
 		// verify if the element is present
-		Assert.assertNotNull(movingDots, "Element is not present on the page");
-		action.moveToElement(elementToHover).perform();
+		Assert.assertNotNull(movingElement, "Element is not present on the page");
+		action.moveToElement(elementToHover).click().perform();
 //		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By
-				.cssSelector("#content > div.carousel.swiper-viewport > div.swiper-pager >	 div.swiper-button-next")));
-		// nextButtonSwiper.click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.cssSelector("#content > div.carousel.swiper-viewport > div.swiper-pager > div.swiper-button-next")));
+		nextButtonSwiper.click();
 		// get the initial number of dots
-		int initialDotCount = movingDots.findElements(By.tagName("span")).size();
+		int initialDotCount = movingElement.findElements(By.tagName("span")).size();
 
 		System.out.println("The initial location is" + initialDotCount);
-		action.moveToElement(elementToHover).perform();
+		// action.moveToElement(elementToHover).build().perform();
 
-		// action.moveToElement(nextButtonSwiper).click().perform();
+		action.moveToElement(nextButtonSwiper).click().perform();
 
 		// get a new dots of the element
-		int newDotCount = movingDots.findElements(By.tagName("span")).size();
+		int newDotCount = movingElement.findElements(By.tagName("span")).size();
 		System.out.println("The new location is" + newDotCount);
 
 		// verify if the element has moved
@@ -173,34 +152,9 @@ public class YourStore extends TestBase {
 		return new YourStore();
 	}
 
-	public AccountLogin clickloginbtn() {
+	public AccountLogin clickLoginBtn() {
 		loginBtn.click();
 		return new AccountLogin();
-
 	}
-	
-
-	public ProductItem getProductByName1(String productName) {
-		for (WebElement productElement : productElements) {
-			String name = productElement.findElement(By.cssSelector(" div.caption > h4")).getText();
-			if (name.equals(productName)) {
-				return new ProductItem(productElement);
-			}
-		}
-
-		return null;
-	}
-
-	public boolean isSuccessMessageDisplayed() {
-		return successMessage.isDisplayed();
-	}
-
-	public void clickWishListTotal() {
-		wishlistTotal.click();
-	}
-
-
-
-
 
 }

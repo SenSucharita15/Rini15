@@ -12,7 +12,6 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
 import com.naveenautomationlabs.AutomationFramework.Listeners.WebdriverEvents;
@@ -21,9 +20,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
 
-	public static WebDriver wd;
+public static	WebDriver wd;
 private FileInputStream fileInputStream;
-public Properties prop;
+private Properties prop;
 public static Logger logger;
 private WebdriverEvents events;
 private EventFiringWebDriver eDriver;
@@ -96,7 +95,6 @@ private EventFiringWebDriver eDriver;
 		wd.manage().window().maximize();
 	}
 	
-	@AfterMethod
 	public void tearDown()
 	{
 		wd.quit();
